@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- typowe meta dane w moich projektach -->
+    <meta charset="utf-8">
+    <meta name="description" content="kalendarz">
+    <meta name="keywords" content="kalendarz, Rok, Dni, Miesiące, Tygodnie">
+    <meta name="author" content="Paweł Krężel">
+    <meta name="company" content="ZST Rybnik">
+    <meta name="robots" content="all">
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- importowanie ładniejszej czcionki, arkusza stylów i skryptów JavaScript -->
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Lobster&family=Pacifico&family=Roboto:ital@0;1&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section class="container" id="glowny_container">
+    <!-- panel ustawień -->
+    <nav id="ustawienia" class="container row">
+        <form class="form-inline col-sm-6">
+            <label class="lead mr-2 ml-2" for="miesiac">Przeskocz do: </label>
+            <select class="form-control col-sm-4" name="miesiac" id="miesiac" onchange="przejdz()">
+                <option value=0>Styczeń</option>
+                <option value=1>Luty</option>
+                <option value=2>Marzec</option>
+                <option value=3>Kwiecień</option>
+                <option value=4>Maj</option>
+                <option value=5>Czerwiec</option>
+                <option value=6>Lipiec</option>
+                <option value=7>Sierpień</option>
+                <option value=8>Wrzesień</option>
+                <option value=9>Październik</option>
+                <option value=10>Listopad</option>
+                <option value=11>Grudzień</option>
+            </select>
+            <label for="rok"></label>
+            <select class="form-control col-sm-4" name="rok" id="rok" onchange="przejdz()"></select>
+        </form>
+        <section class="col-sm-3" id="poprzedni" onclick="poprzedni()">Wstecz</section>
+        <section class="col-sm-3" id="nastepny" onclick="nastepny()">Do przodu</section>
+    </nav>
+    <!-- Ciało kalendarza -->
+    <section class="card">
+        <h3 class="row container">
+            <section id="miesiac_rok" class="col-sm-6"></section>
+        </h3>
+        <table class="table table-bordered table-responsive-sm" id="kalendarz">
+            <thead>
+            <tr>
+                <th>Nd</th>
+                <th>Pon</th>
+                <th>Wt</th>
+                <th>Śr</th>
+                <th>Czw</th>
+                <th>Pt</th>
+                <th>Sb</th>
+            </tr>
+            </thead>
+            <tbody id="kalendarz-tresc">
+            </tbody>
+        </table>
+    </section>
+    <br/>
+</section>
+<!-- skrypt, który wszystkim steruje -->
+<script src="scripts.js"></script>
+</body>
+</html>
